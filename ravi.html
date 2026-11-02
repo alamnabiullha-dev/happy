@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday CASHIER | 3D Universe</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@500;700;900&family=Pacifico&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --pink: #ff35b8;
+            --blue: #20dcff;
+            --purple: #a855ff;
+            --gold: #ffdf72;
+            --green: #40ffbb;
+            --white: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080416;
+            color: white;
+            font-family: Poppins, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ================= BACKGROUND ================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            z-index: -10;
+            background:
+                radial-gradient(circle at 15% 20%, #541477 0%, transparent 35%),
+                radial-gradient(circle at 85% 75%, #102d77 0%, transparent 40%),
+                linear-gradient(135deg, #070416, #18082d, #09051c);
+        }
+
+        .aurora {
+            position: fixed;
+            width: 650px;
+            height: 650px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff00c8, #00d9ff, #8b4dff);
+            filter: blur(120px);
+            opacity: .15;
+            z-index: -8;
+            animation: aurora 15s infinite alternate;
+        }
+
+        @keyframes aurora {
+            0% {
+                transform: translate(0, 0) rotate(0);
+            }
+
+            100% {
+                transform: translate(65vw, 40vh) rotate(360deg);
+            }
+        }
+
+        #stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -5;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 0 0 12px white;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: .2;
+                transform: scale(.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1.6);
+            }
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 15px;
+            background: #080416b8;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid #ffffff20;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 9px 17px;
+            border: 1px solid #ffffff35;
+            border-radius: 30px;
+            font-size: 12px;
+            transition: .4s;
+        }
+
+        nav a:hover {
+            background: linear-gradient(90deg, var(--pink), var(--purple));
+            box-shadow: 0 0 25px var(--pink);
+            transform: translateY(-4px);
+        }
+
+        /* ================= COMMON ================= */
+
+        section {
+            padding: 90px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(27px, 5vw, 45px);
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--pink), var(--gold), var(--blue));
+            background-size: 300%;
+            color: transparent;
+            -webkit-background-clip: text;
+            animation: gradient 5s linear infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes gradient {
+            to {
+                background-position: 300%;
+            }
+        }
+
+        .description {
+            color: #d9cafa;
+            line-height: 1.9;
+            max-width: 750px;
+            margin: 15px auto;
+            font-size: 15px;
+        }
+
+        .tag {
+            color: var(--gold);
+            letter-spacing: 4px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .hero-title {
+            font-family: Orbitron, sans-serif;
+            font-size: clamp(38px, 9vw, 100px);
+            font-weight: 900;
+            line-height: 1.3;
+            margin-top: 30px;
+            background: linear-gradient(90deg, #ff32b5, #ffe36e, #28e7ff, #a855ff, #ff32b5);
+            background-size: 400%;
+            color: transparent;
+            -webkit-background-clip: text;
+            filter: drop-shadow(0 0 25px #b34dff);
+            animation: rainbow 6s linear infinite, heroFloat 4s infinite ease-in-out;
+        }
+
+        @keyframes rainbow {
+            to {
+                background-position: 400%;
+            }
+        }
+
+        @keyframes heroFloat {
+            50% {
+                transform: translateY(-17px) rotateX(8deg);
+            }
+        }
+
+        .hero-subtitle {
+            font-family: Pacifico, cursive;
+            color: var(--gold);
+            font-size: clamp(25px, 5vw, 48px);
+            text-shadow: 0 0 20px #ff9a00;
+            margin-top: 15px;
+        }
+
+        .hero-description {
+            color: #e4d9ff;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        .hero-badge {
+            padding: 12px 22px;
+            border: 1px solid #ffffff45;
+            border-radius: 50px;
+            background: #ffffff10;
+            box-shadow: 0 0 25px #ff35b840;
+            animation: badgePulse 2s infinite;
+        }
+
+        @keyframes badgePulse {
+            50% {
+                box-shadow: 0 0 35px var(--pink);
+            }
+        }
+
+        /* ================= BUTTONS ================= */
+
+        .btn {
+            padding: 14px 27px;
+            margin: 10px 6px;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: 14px;
+            font-weight: 800;
+            background: linear-gradient(100deg, #ff32b5, #883cff, #16cfff);
+            background-size: 200%;
+            cursor: pointer;
+            box-shadow: 0 0 20px #a855ff70;
+            transition: .4s;
+        }
+
+        .btn:hover {
+            background-position: right;
+            transform: translateY(-7px) scale(1.07);
+            box-shadow: 0 0 40px var(--blue);
+        }
+
+        /* ================= 3D CAKE ================= */
+
+        .cake-scene {
+            margin: 45px auto;
+            perspective: 1000px;
+        }
+
+        .cake {
+            font-size: 130px;
+            display: inline-block;
+            cursor: pointer;
+            filter: drop-shadow(0 0 30px #ff35b8);
+            animation: cake3d 4s infinite ease-in-out;
+        }
+
+        @keyframes cake3d {
+
+            0%,
+            100% {
+                transform: rotateY(-15deg) translateY(0);
+            }
+
+            50% {
+                transform: rotateY(15deg) translateY(-25px) rotateX(10deg);
+            }
+        }
+
+        /* ================= GLASS CARDS ================= */
+
+        .glass {
+            max-width: 850px;
+            margin: 35px auto;
+            padding: 35px;
+            background: linear-gradient(135deg, #ffffff20, #ffffff05);
+            border: 1px solid #ffffff35;
+            border-radius: 28px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 60px #0008;
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        .glass h2 {
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .glass p {
+            color: #e9e0ff;
+            font-size: 15px;
+            line-height: 2;
+        }
+
+        /* ================= DNA ANIMATION ================= */
+
+        .dna-container {
+            height: 260px;
+            width: 150px;
+            margin: 45px auto;
+            position: relative;
+            perspective: 800px;
+        }
+
+        .dna-strand {
+            position: absolute;
+            width: 100%;
+            height: 12px;
+            border-radius: 50%;
+            border-top: 4px solid var(--blue);
+            box-shadow: 0 0 15px var(--blue);
+            animation: dna 2s infinite ease-in-out;
+        }
+
+        .dna-strand:nth-child(even) {
+            border-color: var(--pink);
+            box-shadow: 0 0 15px var(--pink);
+            animation-delay: -1s;
+        }
+
+        @keyframes dna {
+
+            0%,
+            100% {
+                transform: scaleX(.2) rotateY(0);
+            }
+
+            50% {
+                transform: scaleX(1) rotateY(180deg);
+            }
+        }
+
+        /* ================= HEARTBEAT ================= */
+
+        .ecg {
+            max-width: 750px;
+            margin: 35px auto;
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid #28e7ff60;
+            background: #07152b;
+            box-shadow: 0 0 30px #28e7ff30;
+        }
+
+        .ecg svg {
+            width: 100%;
+            height: 90px;
+        }
+
+        .ecg path {
+            fill: none;
+            stroke: #42ffb6;
+            stroke-width: 4;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            filter: drop-shadow(0 0 8px #42ffb6);
+            animation: ecg 3s linear infinite;
+        }
+
+        @keyframes ecg {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* ================= FLOATING MEDICAL ICONS ================= */
+
+        .medical-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 40px auto;
+        }
+
+        .medical-card {
+            width: 110px;
+            height: 110px;
+            display: grid;
+            place-items: center;
+            font-size: 45px;
+            border-radius: 25px;
+            border: 1px solid #ffffff40;
+            background: linear-gradient(135deg, #ffffff20, #ffffff05);
+            box-shadow: 0 0 25px #a855ff40;
+            animation: medicalFloat 3s infinite ease-in-out;
+        }
+
+        .medical-card:nth-child(even) {
+            animation-delay: 1s;
+        }
+
+        @keyframes medicalFloat {
+            50% {
+                transform: translateY(-18px) rotateY(25deg) scale(1.1);
+            }
+        }
+
+        /* ================= ROTATING PLANET ================= */
+
+        .planet-area {
+            width: 220px;
+            height: 220px;
+            margin: 45px auto;
+            position: relative;
+            perspective: 700px;
+        }
+
+        .planet {
+            width: 130px;
+            height: 130px;
+            position: absolute;
+            top: 45px;
+            left: 45px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #ffec91, #ff8a36, #a020ba);
+            box-shadow: inset -20px -20px 35px #0008, 0 0 45px #ff9d47;
+            animation: planetRotate 8s linear infinite;
+        }
+
+        @keyframes planetRotate {
+            to {
+                transform: rotateY(360deg) rotateZ(360deg);
+            }
+        }
+
+        .orbit {
+            position: absolute;
+            inset: 30px 0;
+            border: 2px solid #40dcff90;
+            border-radius: 50%;
+            transform: rotateX(65deg);
+            animation: orbit 5s linear infinite;
+        }
+
+        @keyframes orbit {
+            to {
+                transform: rotateX(65deg) rotateZ(360deg);
+            }
+        }
+
+        /* ================= GIFT BOXES ================= */
+
+        .gift-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin: 50px auto;
+        }
+
+        .gift-wrap {
+            cursor: pointer;
+            perspective: 900px;
+        }
+
+        .gift {
+            width: 120px;
+            height: 115px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: giftFloat 3s infinite ease-in-out;
+        }
+
+        .gift-wrap:nth-child(2) .gift {
+            animation-delay: .6s;
+        }
+
+        .gift-wrap:nth-child(3) .gift {
+            animation-delay: 1.2s;
+        }
+
+        .gift-wrap:nth-child(4) .gift {
+            animation-delay: 1.8s;
+        }
+
+        @keyframes giftFloat {
+            50% {
+                transform: translateY(-22px) rotateY(25deg);
+            }
+        }
+
+        .gift-box {
+            position: absolute;
+            bottom: 0;
+            width: 110px;
+            height: 78px;
+            left: 5px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #ff36b6, #7935ff);
+            box-shadow: 0 15px 30px #0008;
+        }
+
+        .gift-box:before {
+            content: "";
+            position: absolute;
+            left: 44px;
+            width: 22px;
+            height: 100%;
+            background: linear-gradient(#fff8, #ffe36e, #ffae00);
+        }
+
+        .gift-lid {
+            position: absolute;
+            top: 18px;
+            left: 0;
+            width: 120px;
+            height: 25px;
+            z-index: 2;
+            background: linear-gradient(90deg, #ff8bd7, #ff32b5);
+            border-radius: 6px;
+            transition: .7s;
+        }
+
+        .gift-lid:after {
+            content: "🎀";
+            position: absolute;
+            left: 40px;
+            top: -35px;
+            font-size: 35px;
+        }
+
+        .gift-wrap.open .gift-lid {
+            transform: translateY(-70px) rotate(-35deg);
+        }
+
+        .gift-label {
+            color: var(--gold);
+            font-weight: 700;
+            margin-top: 15px;
+        }
+
+        /* ================= WISHES ================= */
+
+        .wishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            max-width: 1050px;
+            gap: 20px;
+            margin: 45px auto;
+        }
+
+        .wish-card {
+            padding: 25px;
+            background: #ffffff12;
+            border: 1px solid #ffffff35;
+            border-radius: 23px;
+            backdrop-filter: blur(12px);
+            transition: .4s;
+        }
+
+        .wish-card:hover {
+            transform: translateY(-12px) rotateX(8deg);
+            box-shadow: 0 0 30px #ff32b570;
+        }
+
+        .wish-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .wish-card h3 {
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .wish-card p {
+            font-size: 13px;
+            line-height: 1.9;
+            color: #ded5ff;
+        }
+
+        /* ================= WISH GENERATOR ================= */
+
+        #wishResult {
+            min-height: 60px;
+            margin: 25px auto;
+            color: var(--gold);
+            font-size: 18px;
+            font-weight: 700;
+            max-width: 650px;
+        }
+
+        /* ================= PHOTO FRAME ================= */
+
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            margin: 35px auto;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            border: 5px solid transparent;
+            background: linear-gradient(#100522, #100522) padding-box,
+                linear-gradient(45deg, #ff35b8, #ffe36e, #20dcff, #a855ff) border-box;
+            box-shadow: 0 0 40px #ff35b880;
+            animation: photoGlow 3s infinite alternate;
+        }
+
+        .photo-frame span {
+            font-size: 90px;
+        }
+
+        @keyframes photoGlow {
+            to {
+                box-shadow: 0 0 60px #20dcff;
+            }
+        }
+
+        /* ================= FLOATING EMOJIS ================= */
+
+        .floating {
+            position: fixed;
+            bottom: -100px;
+            pointer-events: none;
+            z-index: 10;
+            animation: floatUp linear forwards;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-120vh) rotate(400deg);
+                opacity: 0;
+            }
+        }
+
+        /* ================= CONFETTI ================= */
+
+        .confetti {
+            position: fixed;
+            top: -20px;
+            width: 10px;
+            height: 15px;
+            z-index: 100;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(1200deg);
+                opacity: 0;
+            }
+        }
+
+        /* ================= FIREWORKS ================= */
+
+        .firework {
+            position: fixed;
+            z-index: 110;
+            pointer-events: none;
+            font-size: 40px;
+            animation: explode 1.5s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(.1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(5) rotate(180deg);
+                opacity: 0;
+            }
+        }
+
+        /* ================= CURSOR SPARKLES ================= */
+
+        .cursor-spark {
+            position: fixed;
+            pointer-events: none;
+            z-index: 200;
+            color: var(--gold);
+            font-size: 16px;
+            animation: spark 1s forwards;
+        }
+
+        @keyframes spark {
+            to {
+                transform: translateY(-35px) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* ================= SCROLL ANIMATION ================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(45px);
+            transition: all .9s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding: 55px 15px;
+            text-align: center;
+            background: #ffffff08;
+            border-top: 1px solid #ffffff20;
+            color: #d7c8f7;
+        }
+
+        footer h2 {
+            color: var(--pink);
+            margin-bottom: 15px;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width:600px) {
+            section {
+                padding: 65px 14px;
+            }
+
+            .glass {
+                padding: 25px 18px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .cake {
+                font-size: 100px;
+            }
+
+            nav {
+                gap: 5px;
+            }
+
+            nav a {
+                font-size: 10px;
+                padding: 8px 10px;
+            }
+
+            .medical-card {
+                width: 85px;
+                height: 85px;
+                font-size: 35px;
+            }
+
+            .gift-grid {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background"></div>
+    <div class="aurora"></div>
+    <div id="stars"></div>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <a href="#home">🏠 Home</a>
+        <a href="#biomedical">🧬 Biomedical</a>
+        <a href="#wishes">💖 Wishes</a>
+        <a href="#gifts">🎁 Gifts</a>
+        <a href="#celebration">🎉 Celebration</a>
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-badge">
+            ✨ A SPECIAL DAY FOR A SPECIAL PERSON ✨
+        </div>
+
+        <h1 class="hero-title">
+            HAPPY BIRTHDAY
+        </h1>
+
+        <h2 class="hero-subtitle">
+            💖 CASHIER 💖
+        </h2>
+
+        <p class="hero-description">
+            🎓 FUTURE BIOMEDICAL ENGINEER • FUTURE INNOVATOR 🎓
+        </p>
+
+        <div class="photo-frame">
+            <span>🥳</span>
+        </div>
+
+        <div class="cake-scene">
+            <div class="cake" onclick="celebrate()">🎂</div>
+        </div>
+
+        <p class="description">
+            A new chapter, new dreams, new adventures
+            and endless opportunities await you!
+        </p>
+
+        <button class="btn" onclick="celebrate()">
+            🎆 START THE CELEBRATION
+        </button>
+
+        <button class="btn" onclick="document.getElementById('gifts').scrollIntoView()">
+            🎁 EXPLORE YOUR GIFTS
+        </button>
+
+    </section>
+
+    <!-- LETTER -->
+
+    <section class="reveal">
+
+        <div class="glass" id="letter">
+
+            <h2>💌 A Birthday Letter for CASHIER</h2>
+
+            <p>
+                Dear CASHIER,<br><br>
+
+                Today is your day! A day to celebrate your life,
+                your personality, your dreams and all the wonderful
+                things that make you special.<br><br>
+
+                May this new year of your life bring you happiness
+                beyond imagination, friendships that last forever,
+                beautiful memories and countless reasons to smile.<br><br>
+
+                You are on an exciting journey in Biomedical Engineering.
+                May your curiosity lead you to discoveries, your creativity
+                inspire innovation and your hard work turn your dreams
+                into reality.<br><br>
+
+                Keep learning new things, exploring new ideas and
+                challenging yourself. Every small step you take today
+                can become a great achievement tomorrow.<br><br>
+
+                May you become an engineer who uses science,
+                technology and compassion to make a positive difference
+                in people's lives.<br><br>
+
+                Wishing you good health, peace, confidence, success,
+                unforgettable adventures and unlimited opportunities.<br><br>
+
+                Never give up on your dreams. Your story is still being
+                written, and your best chapters are waiting ahead!<br><br>
+
+                <strong style="color:#ff5fc7">
+                    HAPPY BIRTHDAY, CASHIER! ❤️🎂
+                </strong>
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- BIOMEDICAL UNIVERSE -->
+
+    <section class="reveal" id="biomedical">
+
+        <div class="tag">🧬 SCIENCE MEETS CELEBRATION 🧬</div>
+
+        <h2 class="section-title">
+            BIOMEDICAL ENGINEERING UNIVERSE
+        </h2>
+
+        <p class="description">
+            Celebrating the future scientist, problem solver
+            and healthcare technology innovator!
+        </p>
+
+        <div class="dna-container">
+
+            <div class="dna-strand" style="top:0"></div>
+            <div class="dna-strand" style="top:14px"></div>
+            <div class="dna-strand" style="top:28px"></div>
+            <div class="dna-strand" style="top:42px"></div>
+            <div class="dna-strand" style="top:56px"></div>
+            <div class="dna-strand" style="top:70px"></div>
+            <div class="dna-strand" style="top:84px"></div>
+            <div class="dna-strand" style="top:98px"></div>
+            <div class="dna-strand" style="top:112px"></div>
+            <div class="dna-strand" style="top:126px"></div>
+            <div class="dna-strand" style="top:140px"></div>
+            <div class="dna-strand" style="top:154px"></div>
+            <div class="dna-strand" style="top:168px"></div>
+            <div class="dna-strand" style="top:182px"></div>
+            <div class="dna-strand" style="top:196px"></div>
+            <div class="dna-strand" style="top:210px"></div>
+
+        </div>
+
+        <h2 style="color:#42ffbb">
+            ❤️ THE HEARTBEAT OF INNOVATION
+        </h2>
+
+        <div class="ecg">
+
+            <p style="color:#42ffbb;letter-spacing:4px">
+                LIFE • SCIENCE • TECHNOLOGY
+            </p>
+
+            <svg viewBox="0 0 700 100" preserveAspectRatio="none">
+                <path
+                    d="M0 50 L100 50 L125 50 L145 25 L165 80 L190 5 L220 70 L245 50 L350 50 L450 50 L475 25 L495 80 L520 5 L550 70 L575 50 L700 50" />
+            </svg>
+
+        </div>
+
+        <div class="medical-grid">
+            <div class="medical-card">🧬</div>
+            <div class="medical-card">🫀</div>
+            <div class="medical-card">🔬</div>
+            <div class="medical-card">🧪</div>
+            <div class="medical-card">🦠</div>
+            <div class="medical-card">🩺</div>
+            <div class="medical-card">🧠</div>
+            <div class="medical-card">💊</div>
+        </div>
+
+        <div class="planet-area">
+            <div class="orbit"></div>
+            <div class="planet"></div>
+        </div>
+
+        <div class="glass">
+            <h2>🚀 YOUR FUTURE IS BRIGHT!</h2>
+
+            <p>
+                May your biomedical engineering journey be filled
+                with scientific discoveries, innovative projects,
+                amazing experiments and successful achievements.<br><br>
+
+                May you develop technologies that help doctors,
+                support patients and improve healthcare around the world.<br><br>
+
+                Keep experimenting, keep creating and keep dreaming
+                about the incredible things you can achieve!
+            </p>
+        </div>
+
+    </section>
+
+    <!-- WISHES -->
+
+    <section class="reveal" id="wishes">
+
+        <div class="tag">💖 A WORLD FULL OF WISHES</div>
+
+        <h2 class="section-title">
+            SPECIAL WISHES FOR YOU
+        </h2>
+
+        <div class="wishes-grid">
+
+            <div class="wish-card">
+                <div class="wish-icon">❤️</div>
+                <h3>Unlimited Happiness</h3>
+                <p>May your days be full of laughter, positivity, joy and beautiful surprises.</p>
+            </div>
+
+            <div class="wish-card">
+                <div class="wish-icon">🎓</div>
+                <h3>Academic Excellence</h3>
+                <p>May every examination, assignment and project bring you closer to success.</p>
+            </div>
+
+            <div class="wish-card">
+                <div class="wish-icon">🧬</div>
+                <h3>Scientific Discoveries</h3>
+                <p>May your innovative ideas inspire meaningful medical technology.</p>
+            </div>
+
+            <div class="wish-card">
+                <div class="wish-icon">🚀</div>
+                <h3>Career Success</h3>
+                <p>May your future career bring exciting opportunities and extraordinary achievements.</p>
+            </div>
+
+            <div class="wish-card">
+                <div class="wish-icon">🌍</div>
+                <h3>Big Adventures</h3>
+                <p>May you explore new places, meet wonderful people and enjoy life.</p>
+            </div>
+
+            <div class="wish-card">
+                <div class="wish-icon">💪</div>
+                <h3>Strength & Courage</h3>
+                <p>May you find strength to overcome every obstacle and confidence to chase your dreams.</p>
+            </div>
+
+            <div class="wish-card">
+                <div class="wish-icon">🌟</div>
+                <h3>Bright Future</h3>
+                <p>May every opportunity bring you closer to the life you always imagined.</p>
+            </div>
+
+            <div class="wish-card">
+                <div class="wish-icon">🕊️</div>
+                <h3>Peace & Good Health</h3>
+                <p>May your life always be blessed with good health, peace and comfort.</p>
+            </div>
+
+            <div class="wish-card">
+                <div class="wish-icon">💰</div>
+                <h3>Prosperity</h3>
+                <p>May your hard work lead to financial independence and a successful future.</p>
+            </div>
+
+            <div class="wish-card">
+                <div class="wish-icon">🤝</div>
+                <h3>True Friendships</h3>
+                <p>May you always be surrounded by genuine people who support and celebrate you.</p>
+            </div>
+
+            <div class="wish-card">
+                <div class="wish-icon">🏆</div>
+                <h3>Great Achievements</h3>
+                <p>May your dedication turn every challenge into an opportunity to shine.</p>
+            </div>
+
+            <div class="wish-card">
+                <div class="wish-icon">✨</div>
+                <h3>Beautiful Memories</h3>
+                <p>May this year become one of the most memorable and happiest chapters of your life.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- GIFTS -->
+
+    <section class="reveal" id="gifts">
+
+        <div class="tag">🎁 MAGICAL SURPRISES</div>
+
+        <h2 class="section-title">
+            OPEN YOUR SPECIAL GIFTS
+        </h2>
+
+        <p class="description">
+            Three little gifts, three big wishes,
+            and unlimited happiness!
+        </p>
+
+        <div class="gift-grid">
+
+            <div class="gift-wrap" onclick="openGift(this,0)">
+                <div class="gift">
+                    <div class="gift-lid"></div>
+                    <div class="gift-box"></div>
+                </div>
+                <div class="gift-label">GIFT ONE</div>
+            </div>
+
+            <div class="gift-wrap" onclick="openGift(this,1)">
+                <div class="gift">
+                    <div class="gift-lid"></div>
+                    <div class="gift-box"></div>
+                </div>
+                <div class="gift-label">GIFT TWO</div>
+            </div>
+
+            <div class="gift-wrap" onclick="openGift(this,2)">
+                <div class="gift">
+                    <div class="gift-lid"></div>
+                    <div class="gift-box"></div>
+                </div>
+                <div class="gift-label">GIFT THREE</div>
+            </div>
+
+            <div class="gift-wrap" onclick="openGift(this,3)">
+                <div class="gift">
+                    <div class="gift-lid"></div>
+                    <div class="gift-box"></div>
+                </div>
+                <div class="gift-label">GIFT FOUR</div>
+            </div>
+
+        </div>
+
+        <div id="surprise">
+            ✨ Open a gift to discover your message!
+        </div>
+
+    </section>
+
+    <!-- RANDOM WISH GENERATOR -->
+
+    <section class="reveal">
+
+        <div class="glass">
+
+            <h2>🌈 YOUR PERSONAL WISH GENERATOR</h2>
+
+            <p>
+                Click below to receive another special birthday wish!
+            </p>
+
+            <div id="wishResult">
+                Your next birthday wish is waiting! 💖
+            </div>
+
+            <button class="btn" onclick="generateWish()">
+                ✨ GENERATE A WISH
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- FINAL CELEBRATION -->
+
+    <section class="reveal" id="celebration">
+
+        <div class="glass">
+
+            <div style="font-size:85px;animation:medicalFloat 3s infinite">
+                🥳
+            </div>
+
+            <h2 style="font-size:clamp(27px,5vw,42px)">
+                THE GRAND BIRTHDAY FINALE!
+            </h2>
+
+            <p>
+                One more year of experience.<br>
+                One more year of adventures.<br>
+                One more year of incredible opportunities.<br><br>
+
+                CASHIER, remember that you are capable of
+                amazing things. Your future is full of possibilities.
+                Believe in yourself and never stop shining!<br><br>
+
+                Have an absolutely unforgettable birthday! ❤️
+            </p>
+
+            <button class="btn" onclick="makeWish()">
+                🕯️ MAKE A WISH
+            </button>
+
+            <button class="btn" onclick="celebrate()">
+                🎆 MASSIVE FIREWORKS
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h2>💖 MADE WITH LOVE FOR CASHIER 💖</h2>
+
+        <p>
+            Future Biomedical Engineer 🧬
+        </p>
+
+        <p style="margin-top:15px">
+            Keep smiling • Keep learning • Keep innovating
+        </p>
+
+        <p style="margin-top:20px;color:#ff70cf">
+            🎂 HAPPY BIRTHDAY CASHIER! 🎂
+        </p>
+
+        <p style="margin-top:25px;font-size:12px">
+            A little birthday surprise for someone extraordinary.
+        </p>
+
+    </footer>
+
+    <script>
+
+        /* ================= STAR GENERATOR ================= */
+
+        const stars = document.getElementById("stars");
+
+        for (let i = 0; i < 160; i++) {
+
+            const s = document.createElement("div");
+
+            s.className = "star";
+            s.style.left = Math.random() * 100 + "%";
+            s.style.top = Math.random() * 100 + "%";
+            s.style.animationDelay = Math.random() * 3 + "s";
+
+            stars.appendChild(s);
+
+        }
+
+        /* ================= FLOATING OBJECTS ================= */
+
+        const emojis = [
+            "🎈", "💖", "🦋", "✨", "🌸", "💜",
+            "⭐", "🎊", "🧬", "🔬", "🫀", "🌈", "🎉", "💎"
+        ];
+
+        function floating() {
+
+            const el = document.createElement("div");
+
+            el.className = "floating";
+            el.textContent = emojis[
+                Math.floor(Math.random() * emojis.length)
+            ];
+
+            el.style.left = Math.random() * 100 + "vw";
+            el.style.fontSize = (20 + Math.random() * 35) + "px";
+            el.style.animationDuration = (7 + Math.random() * 8) + "s";
+
+            document.body.appendChild(el);
+
+            setTimeout(() => el.remove(), 16000);
+
+        }
+
+        setInterval(floating, 350);
+
+        /* ================= CONFETTI ================= */
+
+        function createConfetti() {
+
+            const colors = [
+                "#ff32b5", "#35e8ff", "#ffe36e",
+                "#a855ff", "#42ff9e", "#ff5733", "#fff"
+            ];
+
+            for (let i = 0; i < 200; i++) {
+
+                const c = document.createElement("div");
+
+                c.className = "confetti";
+                c.style.left = Math.random() * 100 + "vw";
+                c.style.background = colors[
+                    Math.floor(Math.random() * colors.length)
+                ];
+
+                c.style.borderRadius = Math.random() > .5 ? "50%" : "2px";
+                c.style.animationDuration = (2 + Math.random() * 4) + "s";
+
+                document.body.appendChild(c);
+
+                setTimeout(() => c.remove(), 6500);
+
+            }
+
+        }
+
+        /* ================= FIREWORKS ================= */
+
+        function fireworks() {
+
+            for (let i = 0; i < 20; i++) {
+
+                setTimeout(() => {
+
+                    const f = document.createElement("div");
+
+                    f.className = "firework";
+
+                    f.textContent = ["🎆", "✨", "💥", "🌟"][
+                        Math.floor(Math.random() * 4)
+                    ];
+
+                    f.style.left = Math.random() * 90 + "vw";
+                    f.style.top = Math.random() * 70 + "vh";
+
+                    document.body.appendChild(f);
+
+                    setTimeout(() => f.remove(), 1600);
+
+                }, i * 100);
+
+            }
+
+        }
+
+        /* ================= MAIN CELEBRATION ================= */
+
+        function celebrate() {
+
+            createConfetti();
+            fireworks();
+
+            document.getElementById("surprise").textContent =
+                "🎉 HAPPY BIRTHDAY CASHIER! MAY YOUR LIFE ALWAYS SHINE! ❤️";
+
+        }
+
+        /* ================= GIFTS ================= */
+
+        const giftMessages = [
+
+            "💖 GIFT ONE: A lifetime of happiness, love and beautiful memories!",
+
+            "🚀 GIFT TWO: An amazing future filled with achievements and success!",
+
+            "🧬 GIFT THREE: May your biomedical innovations make a difference in the world!",
+
+            "🌟 GIFT FOUR: Unlimited confidence, friendship, adventure and good health!"
+
+        ];
+
+        function openGift(element, index) {
+
+            if (element.classList.contains("open")) return;
+
+            element.classList.add("open");
+
+            document.getElementById("surprise").textContent =
+                giftMessages[index];
+
+            createConfetti();
+
+        }
+
+        /* ================= WISH GENERATOR ================= */
+
+        const wishes = [
+
+            "🌈 May every sunrise bring you a new reason to smile!",
+
+            "🧬 May your scientific ideas turn into life-changing innovations!",
+
+            "❤️ May you always be surrounded by love and genuine friendships!",
+
+            "🚀 May you achieve things you once thought were impossible!",
+
+            "🎓 May your academic journey lead to extraordinary achievements!",
+
+            "🌟 May your future shine brighter than every star in the universe!",
+
+            "💪 May you have the courage to face every challenge!",
+
+            "🕊️ May peace, happiness and good health always follow you!",
+
+            "🏆 May all your hard work turn into unforgettable success!",
+
+            "🎉 May this birthday mark the beginning of your best year yet!"
+
+        ];
+
+        function generateWish() {
+
+            const random = Math.floor(Math.random() * wishes.length);
+
+            document.getElementById("wishResult").textContent =
+                wishes[random];
+
+        }
+
+        /* ================= MAKE A WISH ================= */
+
+        function makeWish() {
+
+            document.getElementById("wishResult").textContent =
+                "🕯️ CASHIER, CLOSE YOUR EYES, MAKE A WISH AND BELIEVE THAT BEAUTIFUL THINGS ARE COMING YOUR WAY! ❤️";
+
+            document.getElementById("surprise").textContent =
+                "🌟 YOUR DREAMS ARE WORTH CHASING! KEEP SHINING!";
+
+            celebrate();
+
+        }
+
+        /* ================= SCROLL REVEAL ================= */
+
+        const observer = new IntersectionObserver(entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                }
+
+            });
+
+        }, { threshold: .12 });
+
+        document.querySelectorAll(".reveal").forEach(el => {
+            observer.observe(el);
+        });
+
+        /* ================= 3D LETTER EFFECT ================= */
+
+        const letter = document.getElementById("letter");
+
+        letter.addEventListener("mousemove", e => {
+
+            if (window.innerWidth < 700) return;
+
+            const rect = letter.getBoundingClientRect();
+
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const rx = (y / rect.height - .5) * -8;
+            const ry = (x / rect.width - .5) * 8;
+
+            letter.style.transform =
+                `rotateX(${rx}deg) rotateY(${ry}deg)`;
+
+        });
+
+        letter.addEventListener("mouseleave", () => {
+
+            letter.style.transform = "rotateX(0) rotateY(0)";
+
+        });
+
+        /* ================= CURSOR SPARKLES ================= */
+
+        let lastSpark = 0;
+
+        document.addEventListener("pointermove", e => {
+
+            const now = Date.now();
+
+            if (now - lastSpark < 50) return;
+
+            lastSpark = now;
+
+            const spark = document.createElement("div");
+
+            spark.className = "cursor-spark";
+            spark.textContent = "✦";
+
+            spark.style.left = e.clientX + "px";
+            spark.style.top = e.clientY + "px";
+
+            document.body.appendChild(spark);
+
+            setTimeout(() => spark.remove(), 1000);
+
+        });
+
+        /* ================= INITIAL CELEBRATION ================= */
+
+        setTimeout(createConfetti, 1200);
+
+    </script>
+
+</body>
+
+</html>
